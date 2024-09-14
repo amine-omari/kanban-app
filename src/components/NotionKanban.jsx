@@ -56,6 +56,10 @@ const Board = () => {
 const Column = ({ title, headingColor, column, cards, setCards }) => {
   const [active, setActive] = useState(false);
 
+  const handleDragStart = (e, card) => {
+    e.dataTransfer.setData("cardId", card.id);
+  };
+
   const filterCards = cards.filter((c) => c.column === column);
 
   return (
