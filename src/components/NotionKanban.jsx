@@ -4,6 +4,7 @@ import { DEFAULT_CARDS } from "@/app/data/columns";
 import React, { useState } from "react";
 import { FaFire } from "react-icons/fa";
 import { FiPlus, FiTrash } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 const NotionKanban = () => {
   return (
@@ -89,13 +90,14 @@ const Card = ({ title, id, column, handleDragStart }) => {
   return (
     <>
       <DropIndicator beforeId={id} collumn={column} />
-      <div
+      <motion.div
+        layout
         draggable="true"
-        className="cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing"
         onDragStart={(e) => handleDragStart(e, { title, id, column })}
+        className="cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing"
       >
         <p className="text-sm text-neutral-100">{title}</p>
-      </div>
+      </motion.div>
     </>
   );
 };
