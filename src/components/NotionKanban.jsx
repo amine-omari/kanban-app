@@ -118,6 +118,10 @@ const BurnBarrel = ({ setCards }) => {
     setActive(true);
   };
 
+  const handleDragLeave = () => {
+    setActive(false);
+  };
+
   return (
     <div
       onDragOver={handleDragOver}
