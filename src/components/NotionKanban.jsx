@@ -3,7 +3,7 @@
 import { DEFAULT_CARDS } from "@/app/data/columns";
 import React, { useState } from "react";
 import { FaFire } from "react-icons/fa";
-import { FiTrash } from "react-icons/fi";
+import { FiPlus, FiTrash } from "react-icons/fi";
 
 const NotionKanban = () => {
   return (
@@ -75,6 +75,7 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
           return <Card key={c.id} {...c} />;
         })}
         <DropIndicator beforeId="-1" column={column} />
+        <AddCard column={column} setCards={setCards} />
       </div>
     </div>
   );
@@ -116,5 +117,49 @@ const BurnBarrel = ({ setCards }) => {
     >
       {active ? <FaFire className="animate-bounce" /> : <FiTrash />}
     </div>
+  );
+};
+
+const AddCard = ({ column, setCards }) => {
+  const [text, setText] = useState("");
+  const [adding, setAdding] = useState(false);
+
+  return (
+    <>
+      {adding ? (
+        <>
+          <form>
+            <textarea
+              onChange={(e) => setText(e.target.value)}
+              autoFocus
+              placeholder="Add new task..."
+              className="w-full rounded border border-violet-400 bg-violet-400/20 p-3 text-sm text-neutral-50 placeholder-violet-300 focus:outline-0"
+            ></textarea>
+            <div className="mt-1.5 flex items-center justify-end gap-1.5">
+              <button
+                onClick={() => setAdding(false)}
+                className="px-3 py-1.5 txet-xs text-neutral-400 transition-colors hover:text-neutral-50"
+              >
+                Close
+              </button>
+              <button
+                type="submit"
+                className="flex items-center gap-1.5 rounded bg-neutral-50 px-3 py-1.5 text-xs text-neutral-950 transition-colors hover:bg-neutral-300"
+              >
+                Add
+              </button>
+            </div>
+          </form>
+        </>
+      ) : (
+        <button
+          onClick={() => setAdding(true)}
+          className="flex w-full items-center gsp-1.5 px-3 py-1.5 text-xs text-neutral-400 transition-colors hover:text-neutral-50"
+        >
+          <span>Add card</span>
+          <FiPlus />
+        </button>
+      )}
+    </>
   );
 };
