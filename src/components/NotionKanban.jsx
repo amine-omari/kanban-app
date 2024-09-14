@@ -2,6 +2,8 @@
 
 import { DEFAULT_CARDS } from "@/app/data/columns";
 import React, { useState } from "react";
+import { FaFire } from "react-icons/fa";
+import { FiTrash } from "react-icons/fi";
 
 const NotionKanban = () => {
   return (
@@ -46,6 +48,7 @@ const Board = () => {
         cards={cards}
         setCards={setCards}
       />
+      <BurnBarrel setCards={setCards} />
     </div>
   );
 };
@@ -96,7 +99,22 @@ const DropIndicator = ({ beforeId, column }) => {
     <div
       data-before={beforeId || "-1"}
       data-column={column}
-      className="my-0.5 h-0.5 w-full bg-violet-400 opacity-100"
+      className="my-0.5 h-0.5 w-full bg-violet-400 opacity-0"
     />
+  );
+};
+
+const BurnBarrel = ({ setCards }) => {
+  const [active, setActive] = useState(false);
+  return (
+    <div
+      className={`mt-10 grid h-56 w-56 shrink-0 place-content-center rounded border text-3xl ${
+        active
+          ? "border-red-800 bg-red-800/20 text-red-500"
+          : "border-neutral-500 bg-neutral-500/20 text-neutral-500"
+      }`}
+    >
+      {active ? <FaFire className="animate-bounce" /> : <FiTrash />}
+    </div>
   );
 };
