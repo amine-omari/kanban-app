@@ -1,3 +1,5 @@
+import NotionKanban from "@/components/NotionKanban";
+
 export default function Home() {
-  return <div></div>;
+  return <NotionKanban />;
 }
