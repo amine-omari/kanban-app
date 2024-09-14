@@ -76,7 +76,7 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
         }`}
       >
         {filterCards.map((c) => {
-          return <Card key={c.id} {...c} />;
+          return <Card key={c.id} {...c} handleDragStart={handleDragStart} />;
         })}
         <DropIndicator beforeId="-1" column={column} />
         <AddCard column={column} setCards={setCards} />
