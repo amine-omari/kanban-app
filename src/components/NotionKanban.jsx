@@ -65,9 +65,27 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
       </div>
       <div
         className={`h-full w-full transition-colors ${
-          active ? "bg-neutral-800/50" : "bg-neutral-800"
+          active ? "bg-neutral-800/50" : "bg-neutral-800/0"
         }`}
-      ></div>
+      >
+        {filterCards.map((c) => {
+          return <Card key={c.id} {...c} />;
+        })}
+      </div>
     </div>
+  );
+};
+
+const Card = ({ title, id, column }) => {
+  return (
+    <>
+      <DropIndicator beforeId={id} collumn={column} />
+      <div
+        draggable="true"
+        className="cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing"
+      >
+        <p className="text-sm text-neutral-100">{title}</p>
+      </div>
+    </>
   );
 };
