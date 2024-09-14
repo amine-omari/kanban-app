@@ -81,13 +81,14 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
   );
 };
 
-const Card = ({ title, id, column }) => {
+const Card = ({ title, id, column, handleDragStart }) => {
   return (
     <>
       <DropIndicator beforeId={id} collumn={column} />
       <div
         draggable="true"
         className="cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing"
+        onDragStart={(e) => handleDragStart(e, { title, id, column })}
       >
         <p className="text-sm text-neutral-100">{title}</p>
       </div>
