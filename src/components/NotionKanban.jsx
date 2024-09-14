@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import { DEFAULT_CARDS } from "@/app/data/columns";
+import React, { useState } from "react";
 
 const NotionKanban = () => {
   return (
@@ -11,3 +12,13 @@ const NotionKanban = () => {
 };
 
 export default NotionKanban;
+
+const Board = () => {
+  const [cards, setCards] = useState(DEFAULT_CARDS);
+
+  return (
+    <div className="flex h-full w-full gap-3 overflow-scroll p-12">
+      
+    </div>
+  );
+};
