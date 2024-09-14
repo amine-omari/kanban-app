@@ -71,6 +71,7 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
         {filterCards.map((c) => {
           return <Card key={c.id} {...c} />;
         })}
+        <DropIndicator beforeId="-1" column={column} />
       </div>
     </div>
   );
