@@ -122,8 +122,17 @@ const BurnBarrel = ({ setCards }) => {
     setActive(false);
   };
 
+  const handleDragEnd = (e) => {
+    const cardId = e.dataTransfer.getData("cardId");
+
+    setCards((pv) => pv.filter((c) => c.id !== cardId));
+
+    setActive(false);
+  };
+
   return (
     <div
+      onDrop={handleDragEnd}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       className={`mt-10 grid h-56 w-56 shrink-0 place-content-center rounded border text-3xl ${
