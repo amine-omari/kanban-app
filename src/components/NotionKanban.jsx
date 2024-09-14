@@ -26,7 +26,7 @@ const Board = () => {
         setCards={setCards}
       />
       <Column
-        title="TODo"
+        title="TODO"
         column="todo"
         headingColor="text-yellow-200"
         cards={cards}
@@ -87,5 +87,15 @@ const Card = ({ title, id, column }) => {
         <p className="text-sm text-neutral-100">{title}</p>
       </div>
     </>
+  );
+};
+
+const DropIndicator = ({ beforeId, column }) => {
+  return (
+    <div
+      data-before={beforeId || "-1"}
+      data-column={column}
+      className="my-0.5 h-0.5 w-full bg-violet-400 opacity-100"
+    />
   );
 };
