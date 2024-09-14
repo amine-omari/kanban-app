@@ -144,7 +144,7 @@ const AddCard = ({ column, setCards }) => {
     <>
       {adding ? (
         <>
-          <form>
+          <form onSubmit={handleSubmit}>
             <textarea
               onChange={(e) => setText(e.target.value)}
               autoFocus
