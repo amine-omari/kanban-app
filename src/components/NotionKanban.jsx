@@ -124,6 +124,22 @@ const AddCard = ({ column, setCards }) => {
   const [text, setText] = useState("");
   const [adding, setAdding] = useState(false);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!text.trim().length) return;
+
+    const newCard = {
+      column,
+      title: text.trim(),
+      id: Math.random().toString(),
+    };
+
+    setCards((pv) => [...pv, newCard]);
+
+    setAdding(false);
+  };
+
   return (
     <>
       {adding ? (
