@@ -17,7 +17,8 @@ const NotionKanban = () => {
 export default NotionKanban;
 
 const Board = () => {
-  const [cards, setCards] = useState(DEFAULT_CARDS);
+  const [cards, setCards] = useState([]);
+  const [hasChecked, setHasChecked] = useState(false);
 
   return (
     <div className="flex h-full w-full gap-3 overflow-scroll p-12">
