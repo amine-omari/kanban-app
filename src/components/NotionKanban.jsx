@@ -69,8 +69,17 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
 
   const highlightIndicator = (e) => {
     const indicators = getIndicators();
+    clearHighlights(indicators);
     const el = getNearrestIndicator(e, indicators);
     el.element.style.opacity = "1";
+  };
+
+  const clearHighlights = (els) => {
+    const indicators = els || getIndicators();
+
+    indicators.forEach((i) => {
+      i.style.opacity = "0";
+    });
   };
 
   const getNearrestIndicator = (e, indicators) => {
