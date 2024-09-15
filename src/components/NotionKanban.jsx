@@ -86,6 +86,7 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
       <div
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
+        onDrop={handleDragEnd}
         className={`h-full w-full transition-colors ${
           active ? "bg-neutral-800/50" : "bg-neutral-800/0"
         }`}
