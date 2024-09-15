@@ -60,6 +60,9 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
   const handleDragStart = (e, card) => {
     e.dataTransfer.setData("cardId", card.id);
   };
+
+  const highlightIndicator = (e) => {};
+
   const handleDragOver = (e) => {
     e.preventDefault();
     setActive(true);
