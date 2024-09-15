@@ -27,3 +27,30 @@ export const DEFAULT_CARDS = [
     column: "done",
   },
 ];
+
+export const COLUMNS = [
+  {
+    id: 0,
+    title: "Backlog",
+    column: "backlog",
+    headingColor: "text-neutral-500",
+  },
+  {
+    id: 1,
+    title: "TODO",
+    column: "todo",
+    headingColor: "text-yellow-200",
+  },
+  {
+    id: 2,
+    title: "In progress",
+    column: "doing",
+    headingColor: "text-blue-200",
+  },
+  {
+    id: 3,
+    title: "Done",
+    column: "done",
+    headingColor: "text-emerald-200",
+  },
+];
