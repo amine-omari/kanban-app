@@ -70,7 +70,7 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
   const highlightIndicator = (e) => {
     const indicators = getIndicators();
     clearHighlights(indicators);
-    const el = getNearrestIndicator(e, indicators);
+    const el = getNearestIndicator(e, indicators);
     el.element.style.opacity = "1";
   };
 
@@ -82,7 +82,7 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
     });
   };
 
-  const getNearrestIndicator = (e, indicators) => {
+  const getNearestIndicator = (e, indicators) => {
     const DISTANCE_OFFSET = 50;
 
     const el = indicators.reduce(
@@ -117,6 +117,37 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
   const handleDragEnd = (e) => {
     setActive(false);
     clearHighlights();
+
+    const cardId = e.dataTransfer.getData("cardId");
+
+    const indicators = getIndicators();
+    const { element } = getNearestIndicator(e, indicators);
+
+    const before = element.dataset.before || "-1";
+
+    if (before !== cardId) {
+      let copy = [...cards];
+
+      let cardToTransfer = copy.find((c) => c.id === cardId);
+
+      if (!cardToTransfer) return;
+
+      cardToTransfer = { ...cardToTransfer, column };
+
+      copy = copy.filter((c) => c.id !== cardId);
+
+      const moveToBack = before === "-1";
+      if (moveToBack) {
+        copy.push(cardToTransfer);
+      } else {
+        const insertAtIndex = copy.findIndex((el) => el.id === before);
+        if (insertAtIndex === undefined) return;
+
+        copy.splice(insertAtIndex, 0, cardToTransfer);
+      }
+
+      setCards(copy);
+    }
   };
 
   const filterCards = cards.filter((c) => c.column === column);
