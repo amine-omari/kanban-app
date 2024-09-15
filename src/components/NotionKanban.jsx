@@ -61,12 +61,13 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
     e.dataTransfer.setData("cardId", card.id);
   };
 
-  const highlightIndicator = (e) => {};
-
   const handleDragOver = (e) => {
     e.preventDefault();
+    highlightIndicator(e);
     setActive(true);
   };
+
+  const highlightIndicator = (e) => {};
 
   const handleDragLeave = (e) => {
     setActive(false);
