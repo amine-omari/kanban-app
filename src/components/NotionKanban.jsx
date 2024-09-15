@@ -76,6 +76,7 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
         </span>
       </div>
       <div
+        onDragOver={handleDragOver}
         className={`h-full w-full transition-colors ${
           active ? "bg-neutral-800/50" : "bg-neutral-800/0"
         }`}
