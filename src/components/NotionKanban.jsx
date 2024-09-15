@@ -65,6 +65,10 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
     setActive(true);
   };
 
+  const handleDragLeave = (e) => {
+    setActive(false);
+  };
+
   const filterCards = cards.filter((c) => c.column === column);
 
   return (
