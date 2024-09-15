@@ -173,7 +173,7 @@ const AddCard = ({ column, setCards }) => {
     <>
       {adding ? (
         <>
-          <form onSubmit={handleSubmit}>
+          <motion.form layout onSubmit={handleSubmit}>
             <textarea
               onChange={(e) => setText(e.target.value)}
               autoFocus
@@ -194,7 +194,7 @@ const AddCard = ({ column, setCards }) => {
                 Add
               </button>
             </div>
-          </form>
+          </motion.form>
         </>
       ) : (
         <button
