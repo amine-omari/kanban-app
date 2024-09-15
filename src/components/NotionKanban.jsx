@@ -60,6 +60,10 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
   const handleDragStart = (e, card) => {
     e.dataTransfer.setData("cardId", card.id);
   };
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setActive(true);
+  };
 
   const filterCards = cards.filter((c) => c.column === column);
 
