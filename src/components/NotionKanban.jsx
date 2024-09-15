@@ -111,10 +111,12 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
 
   const handleDragLeave = (e) => {
     setActive(false);
+    clearHighlights();
   };
 
   const handleDragEnd = (e) => {
     setActive(false);
+    clearHighlights();
   };
 
   const filterCards = cards.filter((c) => c.column === column);
