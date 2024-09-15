@@ -1,6 +1,5 @@
 "use client";
 
-import { DEFAULT_CARDS } from "@/app/data/columns";
 import React, { useEffect, useState } from "react";
 import { FaFire } from "react-icons/fa";
 import { FiPlus, FiTrash } from "react-icons/fi";
