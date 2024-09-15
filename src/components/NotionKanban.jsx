@@ -70,6 +70,7 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
   const highlightIndicator = (e) => {
     const indicators = getIndicators();
     const el = getNearrestIndicator(e, indicators);
+    el.element.style.opacity = "1";
   };
 
   const getNearrestIndicator = (e, indicators) => {
