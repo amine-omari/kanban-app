@@ -69,6 +69,10 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
 
   const highlightIndicator = (e) => {};
 
+  const getIndicators = () => {
+    return Array.from(document.querySelectorAll(`[data-column="${column}"]`));
+  };
+
   const handleDragLeave = (e) => {
     setActive(false);
   };
