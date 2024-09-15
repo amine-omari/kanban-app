@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { FaFire } from "react-icons/fa";
 import { FiPlus, FiTrash } from "react-icons/fi";
 import { motion } from "framer-motion";
+import { COLUMNS } from "@/app/data/columns";
 
 const NotionKanban = () => {
   return (
@@ -33,34 +34,16 @@ const Board = () => {
 
   return (
     <div className="flex h-full w-full gap-3 overflow-scroll p-12">
-      <Column
-        title="Backlog"
-        column="backlog"
-        headingColor="text-neutral-500"
-        cards={cards}
-        setCards={setCards}
-      />
-      <Column
-        title="TODO"
-        column="todo"
-        headingColor="text-yellow-200"
-        cards={cards}
-        setCards={setCards}
-      />
-      <Column
-        title="In progress"
-        column="doing"
-        headingColor="text-blue-200"
-        cards={cards}
-        setCards={setCards}
-      />
-      <Column
-        title="Complete"
-        column="done"
-        headingColor="text-emerald-200"
-        cards={cards}
-        setCards={setCards}
-      />
+      {COLUMNS.map((column) => (
+        <Column
+          key={column.id}
+          title={column.title}
+          column={column.column}
+          headingColor={column.headingColor}
+          cards={cards}
+          setCards={setCards}
+        />
+      ))}
       <BurnBarrel setCards={setCards} />
     </div>
   );
