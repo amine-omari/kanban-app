@@ -67,7 +67,19 @@ const Column = ({ title, headingColor, column, cards, setCards }) => {
     setActive(true);
   };
 
-  const highlightIndicator = (e) => {};
+  const highlightIndicator = (e) => {
+    const indicators = getIndicators();
+  };
+
+  const getNearrestIndicator = (e, indicators) => {
+    const el = indicators.reduce(
+      (closest, child) => {},
+      (
+        offset:Number.NEGATIVE_INFINITY,
+        element: indicators[indicators.length-1],
+      ),
+    );
+  };
 
   const getIndicators = () => {
     return Array.from(document.querySelectorAll(`[data-column="${column}"]`));
